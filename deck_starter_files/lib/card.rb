@@ -12,4 +12,9 @@ class Card
     order.index(@rank)>order.index(card.rank)
   end
 
+  def ==(other_card)
+    @rank == other_card.rank &&
+    @suit == other_card.suit
+  end
+
 end

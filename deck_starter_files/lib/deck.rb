@@ -2,31 +2,38 @@ require_relative "card"
 
 class Deck
 
-
-  deck = {
-    clubs:    [:A,2,3,4,5,6,7,8,9,10,:J,:Q,:K],
-    diamonds: [:A,2,3,4,5,6,7,8,9,10,:J,:Q,:K],
-    hearts:   [:A,2,3,4,5,6,7,8,9,10,:J,:Q,:K],
-    spades:   [:A,2,3,4,5,6,7,8,9,10,:J,:Q,:K]
-  }
-
   def initialize
     @deck = []
     ranks = [:A,2,3,4,5,6,7,8,9,10,:J,:Q,:K]
-    ranks.each do 
-      card.new
     
-  end 
+    ranks.each do |rank|
+      @deck << Card.new(rank,:clubs)
+    end
+
+    ranks.each do |rank|
+      @deck << Card.new(rank,:diamonds)
+    end
+
+    ranks.each do |rank|
+      @deck << Card.new(rank,:hearts)
+    end
+
+    ranks.each do |rank|
+      @deck << Card.new(rank,:spades)
+    end
+    
+  end  
 
   def draw
-
+    @deck.shift
   end
   
   def shuffle
-
+    @deck.shuffle
   end
 
   def cards_left
-
+    @deck.length
   end
+
 end
